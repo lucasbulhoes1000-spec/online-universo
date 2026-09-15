@@ -1,0 +1,309 @@
+/* ============================================
+   Universo das Lentes — styles.css
+   Tema fixo (não segue prefers-color-scheme do
+   sistema de propósito: é a identidade de marca).
+   Contraste checado para AA em texto e ícones.
+   ============================================ */
+
+/* ---------- Vídeo (hero) ---------- */
+.video-frame{
+  margin:28px 0;
+  border-radius:2px;
+  overflow:hidden;
+  background:var(--charcoal-2);
+  border:1px solid var(--line);
+}
+.video-placeholder{
+  aspect-ratio:16/9;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  color:var(--porcelain-dim);
+  font-size:14px;
+  padding:16px;
+  text-align:center;
+}
+
+/* ---------- Seções gerais ---------- */
+.section{padding:48px 0}
+.section--dim{background:var(--charcoal-2)}
+.h2{
+  font-family:var(--serif);
+  font-weight:400;
+  font-size:clamp(24px,5.5vw,30px);
+  line-height:1.28;
+  margin:0 0 20px;
+  color:var(--porcelain);
+}
+.p{
+  font-size:16px;
+  line-height:1.65;
+  color:var(--porcelain-dim);
+  margin:0 0 16px;
+}
+.p--emphasis{
+  color:var(--porcelain);
+  font-size:18px;
+}
+
+/* ---------- Prova social ---------- */
+.proof-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:16px;
+  margin-top:24px;
+}
+.proof-card{
+  border:1px solid var(--line);
+  border-radius:2px;
+  overflow:hidden;
+}
+.proof-card__media{
+  aspect-ratio:4/3;
+  background:linear-gradient(135deg,#241f18,#171310);
+}
+.proof-card__label{
+  margin:0;
+  padding:12px 14px;
+  font-size:14px;
+  color:var(--porcelain-dim);
+  border-top:1px solid var(--line);
+}
+
+/* ---------- Tags / skills ---------- */
+.tag-list{
+  list-style:none;
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  padding:0;
+  margin:24px 0;
+}
+.tag-list li{
+  font-size:14px;
+  padding:8px 14px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  color:var(--porcelain-dim);
+}
+
+/* ---------- Currículo ---------- */
+.module{
+  padding:24px 0;
+  border-top:1px solid var(--line);
+}
+.module:first-of-type{border-top:none;padding-top:8px}
+.module__title{
+  font-family:var(--serif);
+  font-weight:400;
+  font-size:20px;
+  color:var(--bronze-light);
+  margin:0 0 10px;
+}
+.plain-list{
+  margin:0 0 16px;
+  padding-left:20px;
+  color:var(--porcelain-dim);
+}
+.plain-list li{margin-bottom:6px;line-height:1.5}
+
+/* ---------- Autoridade ---------- */
+.author-photo{
+  width:100%;
+  aspect-ratio:1/1;
+  max-width:220px;
+  margin:0 auto 28px;
+  border-radius:50%;
+  background:linear-gradient(135deg,#241f18,#171310);
+  border:1px solid var(--line);
+}
+
+/* ---------- Bônus ---------- */
+.bonus-list{
+  list-style:none;
+  padding:0;
+  margin:24px 0;
+}
+.bonus-list li{
+  display:flex;
+  align-items:flex-start;
+  gap:12px;
+  padding:14px 0;
+  border-top:1px solid var(--line);
+  font-size:16px;
+  color:var(--porcelain);
+}
+.bonus-list li:first-child{border-top:none}
+.bonus-list__icon{font-size:18px;line-height:1.4}
+
+/* ---------- Oferta ---------- */
+.offer{padding-top:56px;padding-bottom:56px}
+.check-list{
+  list-style:none;
+  padding:0;
+  margin:0 0 32px;
+}
+.check-list li{
+  position:relative;
+  padding:9px 0 9px 30px;
+  color:var(--porcelain);
+  font-size:16px;
+  border-top:1px solid var(--line);
+}
+.check-list li:first-child{border-top:none}
+.check-list li::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:15px;
+  width:14px;
+  height:8px;
+  border-left:2px solid var(--bronze-light);
+  border-bottom:2px solid var(--bronze-light);
+  transform:rotate(-45deg);
+}
+.price-block{
+  text-align:center;
+  padding:28px 0 20px;
+}
+.price-block__main{
+  font-family:var(--serif);
+  font-size:34px;
+  color:var(--porcelain);
+  margin:0 0 6px;
+}
+.price-block__alt{
+  font-size:16px;
+  color:var(--porcelain-dim);
+  margin:0;
+}
+.guarantee{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  font-size:14px;
+  color:var(--porcelain-dim);
+  margin:0 0 24px;
+}
+
+/* ---------- Footer ---------- */
+.footer{padding:40px 0 56px;text-align:center}
+.footer__text{
+  font-size:13px;
+  color:var(--porcelain-dim);
+  margin:0 0 8px;
+}
+.footer__link{color:var(--bronze-light)}
+
+/* ---------- Modal (pop-up de captura) ---------- */
+.modal-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(10,8,6,0.72);
+  display:flex;
+  align-items:flex-end;
+  justify-content:center;
+  z-index:1000;
+  padding:0;
+}
+.modal{
+  position:relative;
+  width:100%;
+  max-width:600px;
+  max-height:92vh;
+  overflow-y:auto;
+  background:var(--porcelain);
+  color:var(--ink);
+  border-radius:14px 14px 0 0;
+  padding:32px 24px 28px;
+}
+.modal__close{
+  position:absolute;
+  top:14px;
+  right:14px;
+  width:36px;
+  height:36px;
+  border:none;
+  background:transparent;
+  color:var(--ink);
+  font-size:24px;
+  line-height:1;
+  cursor:pointer;
+  border-radius:50%;
+}
+.modal__close:hover{background:rgba(36,30,24,0.08)}
+.modal__close:focus-visible{outline:3px solid var(--bronze);outline-offset:2px}
+.modal__title{
+  font-family:var(--serif);
+  font-weight:400;
+  font-size:24px;
+  margin:0 0 8px;
+  color:var(--ink);
+}
+.modal__sub{
+  font-size:15px;
+  color:#5a4f42;
+  margin:0 0 24px;
+}
+
+.form-errors{
+  background:#fbeaea;
+  border:1px solid #d98c8c;
+  color:#7a1f1f;
+  border-radius:6px;
+  padding:12px 14px;
+  font-size:14px;
+  margin-bottom:20px;
+}
+
+.field{margin-bottom:18px}
+.field label{
+  display:block;
+  font-size:14px;
+  font-weight:600;
+  color:var(--ink);
+  margin-bottom:6px;
+}
+.field .req{color:#8a3b1f}
+.field input{
+  width:100%;
+  padding:13px 14px;
+  font-size:16px;
+  font-family:var(--sans);
+  border:1.5px solid #c9bfa8;
+  border-radius:6px;
+  background:#fff;
+  color:var(--ink);
+}
+.field input:focus-visible{
+  outline:2.5px solid var(--bronze);
+  outline-offset:1px;
+  border-color:var(--bronze);
+}
+.field.has-error input{border-color:#c0392b}
+.field-error{
+  display:block;
+  font-size:13px;
+  color:#c0392b;
+  margin-top:6px;
+  min-height:0;
+}
+
+.btn--full{width:100%;max-width:none;margin-top:6px}
+.btn[disabled]{opacity:.65;cursor:not-allowed}
+
+/* ---------- Acessibilidade / preferências ---------- */
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:0.001ms !important;transition-duration:0.001ms !important;}
+}
+
+/* ---------- Desktop (a partir de 640px o texto ganha um pouco mais de respiro) ---------- */
+@media (min-width:640px){
+  .hero{padding:80px 0 56px}
+  .section{padding:64px 0}
+  .modal-overlay{align-items:center;padding:24px}
+  .modal{border-radius:14px;padding:40px 36px 32px}
+}
