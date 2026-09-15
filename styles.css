@@ -203,12 +203,13 @@
   position:fixed;
   inset:0;
   background:rgba(10,8,6,0.72);
-  display:flex;
   align-items:flex-end;
   justify-content:center;
   z-index:1000;
   padding:0;
 }
+.modal-overlay[hidden]{display:none}
+.modal-overlay:not([hidden]){display:flex}
 .modal{
   position:relative;
   width:100%;
