@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Universo das Lentes — Método Bulhões</title>
+<meta name="description" content="Aprenda o Método Bulhões e domine uma técnica de lentes em resina minimalista, natural e sofisticada, com apenas 2 tonalidades de resina.">
+
+<!-- CSS crítico: o mínimo para renderizar a primeira tela sem flash -->
+<style>
+  :root{
+    --charcoal:#16130f;
+    --charcoal-2:#1e1912;
+    --porcelain:#f3eee2;
+    --porcelain-dim:#e6dcc8;
+    --bronze:#b4894f;
+    --bronze-light:#d9b77e;
+    --ink:#241e18;
+    --line:rgba(243,238,226,0.14);
+    --serif:Georgia,"Iowan Old Style","Palatino Linotype",Palatino,serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  }
+  *,*::before,*::after{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;
+    background:var(--charcoal);
+    color:var(--porcelain);
+    font-family:var(--sans);
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .container{max-width:600px;margin:0 auto;padding:0 24px}
+  .hero{padding:56px 0 40px;text-align:center}
+  .hero .eyebrow{
+    font-family:var(--sans);
+    font-size:13px;
+    letter-spacing:0.06em;
+    color:var(--bronze-light);
+    margin:0 0 18px;
+  }
+  .hero h1{
+    font-family:var(--serif);
+    font-weight:400;
+    font-size:clamp(30px,7vw,44px);
+    line-height:1.18;
+    margin:0 0 20px;
+    color:var(--porcelain);
+  }
+  .hero .sub{
+    font-size:18px;
+    line-height:1.55;
+    color:var(--porcelain-dim);
+    margin:0 0 28px;
+  }
+  .btn{
+    display:inline-block;
+    width:100%;
+    max-width:440px;
+    padding:17px 24px;
+    background:var(--bronze);
+    color:var(--charcoal);
+    font-family:var(--sans);
+    font-size:16px;
+    font-weight:600;
+    text-align:center;
+    border:none;
+    border-radius:2px;
+    cursor:pointer;
+    text-decoration:none;
+    transition:background .15s ease;
+  }
+  .btn:hover{background:var(--bronze-light)}
+  .btn:focus-visible{outline:3px solid var(--bronze-light);outline-offset:3px}
+  a,button{font-family:inherit}
+  img{max-width:100%;display:block}
+</style>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="container">
+    <p class="eyebrow">Dra. Larissa Bulhões</p>
+    <h1>Universo das Lentes</h1>
+    <p class="sub">
+      Aprenda o Método Bulhões e domine uma técnica de lentes em resina que te permita
+      cobrar mais de R$ 5 mil apenas nas lentes superiores.
+    </p>
+    <p class="sub">
+      Uma técnica minimalista desenvolvida pela Dra. Larissa Bulhões para construir
+      resultados naturais e sofisticados utilizando apenas 2 tonalidades de resina.
+    </p>
+
+    <!-- VSL: substitua o bloco abaixo pelo player real (Vturb, Panda, YouTube privado etc.) -->
+    <div class="video-frame" aria-label="Vídeo de apresentação do Método Bulhões">
+      <div class="video-placeholder">
+        <svg width="52" height="52" viewBox="0 0 52 52" fill="none" aria-hidden="true">
+          <circle cx="26" cy="26" r="25" stroke="#d9b77e" stroke-width="1.5"/>
+          <path d="M21 17L36 26L21 35V17Z" fill="#d9b77e"/>
+        </svg>
+        <p>Insira aqui o embed do seu player de VSL</p>
+      </div>
+    </div>
+
+    <button type="button" class="btn" data-cta="hero">Quero aprender o Método Bulhões</button>
+  </div>
+</header>
+
+<!-- ============ PROVA: RESULTADOS DE ALUNOS ============ -->
+<section class="section section--dim">
+  <div class="container">
+    <h2 class="h2">Mesmo quem nunca realizou lentes pode aprender a construir resultados como esses.</h2>
+    <p class="p">
+      Alguns dos nossos alunos chegaram ao Universo sem nunca terem executado um caso de
+      lentes em resina.
+    </p>
+    <p class="p">Hoje, os resultados falam por eles.</p>
+
+    <div class="proof-grid">
+      <!-- Substitua cada bloco pelas imagens/vídeos reais dos alunos -->
+      <div class="proof-card">
+        <div class="proof-card__media" aria-hidden="true"></div>
+        <p class="proof-card__label">Resultados dos alunos</p>
+      </div>
+      <div class="proof-card">
+        <div class="proof-card__media" aria-hidden="true"></div>
+        <p class="proof-card__label">Primeiros casos</p>
+      </div>
+      <div class="proof-card">
+        <div class="proof-card__media" aria-hidden="true"></div>
+        <p class="proof-card__label">Depoimentos em vídeo / prints</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FILOSOFIA / MÉTODO ============ -->
+<section class="section">
+  <div class="container">
+    <h2 class="h2">Naturalidade não está na quantidade de resinas. Está no domínio de cada detalhe.</h2>
+    <p class="p">O Método Bulhões parte de uma visão minimalista das lentes em resina.</p>
+    <p class="p">
+      Em vez de depender de inúmeras massas, materiais e protocolos difíceis de reproduzir,
+      você aprende a dominar os detalhes que realmente constroem um resultado natural.
+    </p>
+
+    <ul class="tag-list">
+      <li>Planejamento</li>
+      <li>Anatomia</li>
+      <li>Proporção</li>
+      <li>Luz e sombra</li>
+      <li>Translucidez</li>
+      <li>Estratificação</li>
+      <li>Acabamento</li>
+      <li>Polimento</li>
+    </ul>
+
+    <p class="p">
+      Você aprende a construir casos utilizando apenas duas tonalidades de resina e,
+      através da Estratificação Simplificada, determinados casos podem ser executados até
+      mesmo com uma única resina, preservando naturalidade e translucidez.
+    </p>
+    <p class="p p--emphasis">Menos complexidade. Mais domínio sobre cada detalhe.</p>
+  </div>
+</section>
+
+<!-- ============ CURRÍCULO ============ -->
+<section class="section section--dim">
+  <div class="container">
+    <h2 class="h2">Aqui está tudo o que você vai aprender no Método VLR:</h2>
+
+    <div class="module">
+      <h3 class="module__title">Planejamento e oclusão</h3>
+      <p class="p">
+        Indicações e contraindicações, planejamento do caso, levante de mordida com table
+        tops, guia canina e verificação oclusal.
+      </p>
+    </div>
+
+    <div class="module">
+      <h3 class="module__title">Anatomia e naturalidade</h3>
+      <p class="p">
+        Proporções, zênites, ameias, áreas de espelho e sombra, volume, inclinação,
+        anatomia primária e secundária e construção da curva do sorriso.
+      </p>
+    </div>
+
+    <div class="module">
+      <h3 class="module__title">Estratificação</h3>
+      <p class="p">
+        Da estratificação simplificada às técnicas mais avançadas, incluindo concha
+        incisal sem guia de silicone e sem moldagem, translucidez incisal, mamelos, halo
+        opalescente, cores e pigmentos.
+      </p>
+    </div>
+
+    <div class="module">
+      <h3 class="module__title">Acabamento e polimento</h3>
+      <p class="p">
+        Término cervical em 0, refinamento anatômico, sequência de brocas e protocolo
+        completo de polimento para longevidade da cor e brilho.
+      </p>
+    </div>
+
+    <div class="module">
+      <h3 class="module__title">Manutenção e consertos</h3>
+      <p class="p">Como realizar manutenções e fazer consertos sem precisar refazer todo o trabalho.</p>
+    </div>
+
+    <div class="module">
+      <h3 class="module__title">Casos clínicos reais</h3>
+      <p class="p">Acompanhe casos completos filmados em tempo real:</p>
+      <ul class="plain-list">
+        <li>Diastemas</li>
+        <li>Dentes escurecidos</li>
+        <li>Dentes conoides</li>
+        <li>Dentes pequenos</li>
+        <li>Fechamentos completos de sorriso</li>
+        <li>Lentes sobre coroa de porcelana em dente ou implante</li>
+      </ul>
+      <p class="p">E novos casos e técnicas continuam sendo adicionados ao Universo.</p>
+    </div>
+
+    <div class="module">
+      <h3 class="module__title">Mentoria e suporte</h3>
+      <ul class="plain-list">
+        <li>Mentoria em grupo para dúvidas e direcionamento</li>
+        <li>Grupo de WhatsApp para networking e troca com outros alunos</li>
+        <li>Análise dos seus casos, com direcionamento clínico individual</li>
+        <li>Atualizações constantes com novos casos e técnicas</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AUTORIDADE: DRA. LARISSA ============ -->
+<section class="section">
+  <div class="container">
+    <h2 class="h2">O Método Bulhões nasceu de uma forma minimalista de enxergar a odontologia.</h2>
+
+    <!-- Substitua pela foto real da Dra. Larissa -->
+    <div class="author-photo" aria-hidden="true"></div>
+
+    <p class="p">A Dra. Larissa Bulhões começou a trabalhar com lentes em resina ainda no primeiro ano de formada.</p>
+    <p class="p">
+      Ao longo dos anos, desenvolveu uma forma própria de executar seus casos: simplificar
+      a técnica sem simplificar o resultado.
+    </p>
+    <p class="p">
+      Em vez de depender de inúmeras massas, materiais e etapas difíceis de reproduzir,
+      Larissa passou a concentrar sua técnica no domínio daquilo que realmente determina a
+      naturalidade de uma lente.
+    </p>
+    <p class="p">Foi dessa filosofia que nasceu o Método Bulhões.</p>
+    <p class="p">
+      Uma técnica minimalista que permite construir casos utilizando apenas duas
+      tonalidades de resina e, em determinadas situações, executar a estratificação com
+      uma única resina, preservando naturalidade e translucidez.
+    </p>
+  </div>
+</section>
+
+<!-- ============ BÔNUS ============ -->
+<section class="section section--dim">
+  <div class="container">
+    <p class="p p--emphasis">E você não vai aprender apenas a executar.</p>
+
+    <ul class="bonus-list">
+      <li><span class="bonus-list__icon" aria-hidden="true">🎁</span> Fotografia profissional para dentistas</li>
+      <li><span class="bonus-list__icon" aria-hidden="true">🎁</span> Como apresentar, precificar e fechar lentes em resina</li>
+      <li><span class="bonus-list__icon" aria-hidden="true">🎁</span> Posicionamento digital para dentistas</li>
+      <li><span class="bonus-list__icon" aria-hidden="true">🎁</span> Gengivoplastia aplicada às lentes em resina</li>
+      <li><span class="bonus-list__icon" aria-hidden="true">🎁</span> Como realizar uma avaliação estratégica</li>
+    </ul>
+
+    <p class="p">Tudo o que você precisa para dominar o Método Bulhões em um único lugar.</p>
+  </div>
+</section>
+
+<!-- ============ OFERTA ============ -->
+<section class="section offer" id="oferta">
+  <div class="container">
+    <h2 class="h2">Universo das Lentes em Resina</h2>
+
+    <ul class="check-list">
+      <li>Formação completa no Método Bulhões</li>
+      <li>Casos clínicos reais e completos</li>
+      <li>Método Bulhões de Estratificação Simplificada</li>
+      <li>Atualizações constantes de casos e técnicas</li>
+      <li>Mentorias em grupo</li>
+      <li>Grupo de WhatsApp</li>
+      <li>Análise e direcionamento dos seus casos</li>
+      <li>Todos os bônus</li>
+    </ul>
+
+    <div class="price-block">
+      <p class="price-block__main">R$ 2.497 à vista</p>
+      <p class="price-block__alt">ou 12x de R$ 249</p>
+    </div>
+
+    <p class="guarantee">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M12 2L4 5V11C4 16.5 7.4 20.7 12 22C16.6 20.7 20 16.5 20 11V5L12 2Z" stroke="#d9b77e" stroke-width="1.4"/>
+        <path d="M9 12L11 14L15 10" stroke="#d9b77e" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Garantia incondicional de 7 dias.
+    </p>
+
+    <button type="button" class="btn" data-cta="offer">Quero entrar para o Universo das Lentes</button>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <p class="footer__text">Universo das Lentes — Método Bulhões</p>
+    <p class="footer__text">
+      <a href="privacidade.html" class="footer__link">Política de privacidade</a>
+    </p>
+  </div>
+</footer>
+
+<!-- ============ POP-UP DE CAPTURA (antes do checkout) ============ -->
+<div class="modal-overlay" id="modalOverlay" hidden>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" id="modal">
+    <button type="button" class="modal__close" id="modalClose" aria-label="Fechar">&times;</button>
+
+    <h2 class="modal__title" id="modalTitle">Quero garantir meu acesso</h2>
+    <p class="modal__sub">Preencha seus dados para continuar para o pagamento.</p>
+
+    <div class="form-errors" id="formErrors" role="alert" aria-live="assertive" hidden></div>
+
+    <form id="leadForm" novalidate>
+      <div class="field">
+        <label for="fieldNome">Nome completo <span class="req">*</span></label>
+        <input type="text" id="fieldNome" name="nome" autocomplete="name" required aria-describedby="errNome">
+        <span class="field-error" id="errNome" aria-live="polite"></span>
+      </div>
+
+      <div class="field">
+        <label for="fieldEmail">E-mail <span class="req">*</span></label>
+        <input type="email" id="fieldEmail" name="email" autocomplete="email" required aria-describedby="errEmail">
+        <span class="field-error" id="errEmail" aria-live="polite"></span>
+      </div>
+
+      <div class="field">
+        <label for="fieldWhatsapp">WhatsApp <span class="req">*</span></label>
+        <input type="tel" id="fieldWhatsapp" name="whatsapp" autocomplete="tel" required aria-describedby="errWhatsapp" placeholder="(00) 00000-0000">
+        <span class="field-error" id="errWhatsapp" aria-live="polite"></span>
+      </div>
+
+      <button type="submit" class="btn btn--full" id="submitBtn">Quero garantir meu acesso</button>
+    </form>
+  </div>
+</div>
+
+<script src="flow.js" defer></script>
+<script src="app.js" defer></script>
+</body>
+</html>
