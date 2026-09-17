@@ -23,4 +23,11 @@ const FLOW_CONFIG = {
   // para receber os leads em tempo real. Deixe vazio para não enviar.
   // Você pediu para NÃO integrar isso ainda — está pronto, só falta a URL.
   webhookUrl: "",
+  // Botão flutuante de WhatsApp. Preencha "number" com DDI+DDD+número
+  // (ex: "5511998887777") para ativar. Enquanto vazio, o botão aparece
+  // no site mas não abre nada ao ser clicado (evita link quebrado).
+  whatsapp: {
+    number: "",
+    message: "Olá! Quero saber mais sobre o Universo das Lentes 😊",
+  },
 };
