@@ -188,9 +188,17 @@
   border-bottom:2px solid var(--bronze-light);
   transform:rotate(-45deg);
 }
+.recoup{
+  text-align:center;
+  font-size:15px;
+  line-height:1.5;
+  color:var(--porcelain-dim);
+  padding-top:32px;
+  margin:0;
+}
 .price-block{
   text-align:center;
-  padding:28px 0 20px;
+  padding:12px 0 20px;
 }
 .price-block__main{
   font-family:var(--serif);
