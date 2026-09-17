@@ -38,6 +38,16 @@
     referrer: document.referrer,
   });
 
+  // ---------- FAQ (acordeon) ----------
+  document.querySelectorAll(".faq-item__q").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      const answer = btn.nextElementSibling;
+      const isOpen = btn.getAttribute("aria-expanded") === "true";
+      btn.setAttribute("aria-expanded", String(!isOpen));
+      answer.hidden = isOpen;
+    });
+  });
+
   // ---------- WhatsApp flutuante ----------
   const whatsappFloat = document.getElementById("whatsappFloat");
   if (whatsappFloat) {
