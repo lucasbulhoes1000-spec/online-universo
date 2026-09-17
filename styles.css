@@ -1,256 +1,372 @@
 /* ============================================
-   app.js — motor do funil
+   Universo das Lentes — styles.css
+   Tema fixo (não segue prefers-color-scheme do
+   sistema de propósito: é a identidade de marca).
+   Contraste checado para AA em texto e ícones.
    ============================================ */
 
-(function () {
-  "use strict";
+/* ---------- Vídeo (hero) ---------- */
+.video-frame{
+  margin:0 0 20px;
+  border-radius:2px;
+  overflow:hidden;
+  background:var(--charcoal-2);
+  border:1px solid var(--line);
+}
+.video-placeholder{
+  aspect-ratio:16/9;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  color:var(--porcelain-dim);
+  font-size:14px;
+  padding:16px;
+  text-align:center;
+}
 
-  // ---------- Configuração de tracking ----------
-  // Preencha os IDs quando quiser ligar analytics/pixel.
-  // Enquanto vazios, os eventos só aparecem no console (F12).
-  const TRACKING_CONFIG = {
-    ga4_id: "",         // Ex: 'G-XXXXXXXXXX'
-    meta_pixel_id: "",  // Ex: '1234567890'
-    custom_webhook: FLOW_CONFIG.webhookUrl || "",
-  };
+/* ---------- Seções gerais ---------- */
+.section{padding:48px 0}
+.section--dim{background:var(--charcoal-2)}
+.h2{
+  font-family:var(--serif);
+  font-weight:400;
+  font-size:clamp(24px,5.5vw,30px);
+  line-height:1.28;
+  margin:0 0 20px;
+  color:var(--bronze-light);
+}
+.h2--center{text-align:center}
+.p{
+  font-size:16px;
+  line-height:1.65;
+  color:var(--porcelain-dim);
+  margin:0 0 16px;
+}
+.p--emphasis{
+  color:var(--porcelain);
+  font-size:18px;
+}
 
-  function trackEvent(eventName, data) {
-    data = data || {};
-    console.log("[TRACK] " + eventName, data);
-    if (TRACKING_CONFIG.ga4_id && typeof window.gtag === "function") {
-      window.gtag("event", eventName, data);
-    }
-    if (TRACKING_CONFIG.meta_pixel_id && typeof window.fbq === "function") {
-      window.fbq("trackCustom", eventName, data);
-    }
-    if (TRACKING_CONFIG.custom_webhook && navigator.sendBeacon) {
-      try {
-        navigator.sendBeacon(
-          TRACKING_CONFIG.custom_webhook,
-          JSON.stringify({ event: eventName, ...data, timestamp: Date.now() })
-        );
-      } catch (e) { /* falha silenciosa de beacon não deve travar a página */ }
-    }
-  }
+/* ---------- Checklist (o que você passa a saber) ---------- */
+.checklist-card{
+  border:1px solid var(--line);
+  border-radius:8px;
+  padding:8px 20px;
+  margin:24px 0 28px;
+}
+.checklist-card__list{
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+.checklist-card__list li{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:14px 0;
+  border-top:1px solid var(--line);
+  font-size:16px;
+  color:var(--porcelain);
+}
+.checklist-card__list li:first-child{border-top:none}
+.checklist-card__list svg{flex:none}
+.btn--center{display:block;margin:24px auto 0}
 
-  trackEvent("page_view", {
-    url: window.location.href,
-    referrer: document.referrer,
-  });
+/* ---------- Prova social ---------- */
+.proof-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin-top:24px;
+}
+.proof-grid img{
+  width:100%;
+  height:100%;
+  aspect-ratio:1/1;
+  object-fit:cover;
+  object-position:center;
+  border-radius:4px;
+  border:1px solid var(--line);
+  background:var(--charcoal-2);
+}
+.proof-grid img.obj-top{object-position:top}
 
-  // ---------- WhatsApp flutuante ----------
-  const whatsappFloat = document.getElementById("whatsappFloat");
-  if (whatsappFloat) {
-    const wa = FLOW_CONFIG.whatsapp || {};
-    if (wa.number) {
-      const text = encodeURIComponent(wa.message || "");
-      whatsappFloat.href = "https://wa.me/" + wa.number.replace(/\D/g, "") + (text ? "?text=" + text : "");
-    } else {
-      whatsappFloat.addEventListener("click", function (e) {
-        e.preventDefault();
-        console.warn("Configure FLOW_CONFIG.whatsapp.number em flow.js para ativar o botão de WhatsApp.");
-      });
-    }
-  }
+/* ---------- Depoimentos ---------- */
+.testimonial-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:16px;
+  margin-top:24px;
+}
+.testimonial-grid img{
+  width:100%;
+  height:auto;
+  border-radius:8px;
+  border:1px solid var(--line);
+  display:block;
+}
 
-  // ---------- Elementos ----------
-  const overlay = document.getElementById("modalOverlay");
-  const modal = document.getElementById("modal");
-  const closeBtn = document.getElementById("modalClose");
-  const form = document.getElementById("leadForm");
-  const submitBtn = document.getElementById("submitBtn");
-  const errorsBox = document.getElementById("formErrors");
-  const ctaButtons = document.querySelectorAll("[data-cta]");
+/* ---------- Currículo ---------- */
+.module{
+  padding:24px 0;
+  border-top:1px solid var(--line);
+}
+.module:first-of-type{border-top:none;padding-top:8px}
+.module__title{
+  font-family:var(--serif);
+  font-weight:400;
+  font-size:20px;
+  color:var(--bronze-light);
+  margin:0 0 10px;
+}
+.plain-list{
+  margin:0 0 16px;
+  padding-left:20px;
+  color:var(--porcelain-dim);
+}
+.plain-list li{margin-bottom:6px;line-height:1.5}
 
-  let lastFocusedEl = null;
-  let popupOpenedAt = null;
-  let hasStartedFilling = false;
+/* ---------- Autoridade ---------- */
+.author-photo{
+  width:100%;
+  aspect-ratio:1/1;
+  max-width:220px;
+  margin:0 auto 28px;
+  border-radius:50%;
+  overflow:hidden;
+  border:1px solid var(--line);
+}
+.author-photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:top center;
+  display:block;
+}
 
-  // ---------- Abrir / fechar modal ----------
-  function openModal(sourceLabel) {
-    lastFocusedEl = document.activeElement;
-    overlay.hidden = false;
-    document.body.style.overflow = "hidden";
-    popupOpenedAt = Date.now();
-    trackEvent("step_view", { step_id: "popup_lead", step_number: 1, step_title: "Captura de lead" });
+/* ---------- Bônus ---------- */
+.bonus-list{
+  list-style:none;
+  padding:0;
+  margin:24px 0;
+}
+.bonus-list li{
+  display:flex;
+  align-items:flex-start;
+  gap:12px;
+  padding:14px 0;
+  border-top:1px solid var(--line);
+  font-size:16px;
+  color:var(--porcelain);
+}
+.bonus-list li:first-child{border-top:none}
+.bonus-list__icon{font-size:18px;line-height:1.4}
 
-    const firstField = form.querySelector("input");
-    if (firstField) firstField.focus();
+/* ---------- Oferta ---------- */
+.offer{padding-top:56px;padding-bottom:56px}
+.check-list{
+  list-style:none;
+  padding:0;
+  margin:0 0 32px;
+}
+.check-list li{
+  position:relative;
+  padding:9px 0 9px 30px;
+  color:var(--porcelain);
+  font-size:16px;
+  border-top:1px solid var(--line);
+}
+.check-list li:first-child{border-top:none}
+.check-list li::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:15px;
+  width:14px;
+  height:8px;
+  border-left:2px solid var(--bronze-light);
+  border-bottom:2px solid var(--bronze-light);
+  transform:rotate(-45deg);
+}
+.recoup{
+  text-align:center;
+  font-size:15px;
+  line-height:1.5;
+  color:var(--porcelain-dim);
+  padding-top:32px;
+  margin:0;
+}
+.price-block{
+  text-align:center;
+  padding:12px 0 20px;
+}
+.price-block__main{
+  font-family:var(--serif);
+  font-size:34px;
+  color:var(--porcelain);
+  margin:0 0 6px;
+}
+.price-block__alt{
+  font-size:16px;
+  color:var(--porcelain-dim);
+  margin:0;
+}
+.guarantee{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  font-size:14px;
+  color:var(--porcelain-dim);
+  margin:0 0 24px;
+}
 
-    document.addEventListener("keydown", onKeydown);
-  }
+/* ---------- Selo de garantia ---------- */
+.guarantee-seal{text-align:center}
+.guarantee-seal__badge{display:block;margin:0 auto 20px}
+.guarantee-seal__text{
+  max-width:440px;
+  margin:0 auto;
+  text-align:center;
+}
 
-  function closeModal() {
-    overlay.hidden = true;
-    document.body.style.overflow = "";
-    document.removeEventListener("keydown", onKeydown);
-    if (lastFocusedEl) lastFocusedEl.focus();
-  }
+/* ---------- WhatsApp flutuante ---------- */
+.whatsapp-float{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  width:56px;
+  height:56px;
+  border-radius:50%;
+  background:#25D366;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 6px 20px rgba(0,0,0,0.35);
+  z-index:900;
+  transition:transform .15s ease;
+}
+.whatsapp-float:hover{transform:scale(1.06)}
+.whatsapp-float:focus-visible{outline:3px solid var(--bronze-light);outline-offset:3px}
 
-  function onKeydown(e) {
-    if (e.key === "Escape") {
-      closeModal();
-      return;
-    }
-    if (e.key === "Tab") {
-      // Focus trap simples: mantém o foco dentro do modal
-      const focusables = modal.querySelectorAll(
-        'button, input, a[href], [tabindex]:not([tabindex="-1"])'
-      );
-      if (!focusables.length) return;
-      const first = focusables[0];
-      const last = focusables[focusables.length - 1];
-      if (e.shiftKey && document.activeElement === first) {
-        e.preventDefault();
-        last.focus();
-      } else if (!e.shiftKey && document.activeElement === last) {
-        e.preventDefault();
-        first.focus();
-      }
-    }
-  }
+/* ---------- Footer ---------- */
+.footer{padding:40px 0 56px;text-align:center}
+.footer__text{
+  font-size:13px;
+  color:var(--porcelain-dim);
+  margin:0 0 8px;
+}
+.footer__link{color:var(--bronze-light)}
 
-  ctaButtons.forEach(function (btn) {
-    btn.addEventListener("click", function () {
-      trackEvent("funnel_start", { source: btn.dataset.cta });
-      openModal(btn.dataset.cta);
-    });
-  });
+/* ---------- Modal (pop-up de captura) ---------- */
+.modal-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(10,8,6,0.72);
+  align-items:flex-end;
+  justify-content:center;
+  z-index:1000;
+  padding:0;
+}
+.modal-overlay[hidden]{display:none}
+.modal-overlay:not([hidden]){display:flex}
+.modal{
+  position:relative;
+  width:100%;
+  max-width:600px;
+  max-height:92vh;
+  overflow-y:auto;
+  background:var(--porcelain);
+  color:var(--ink);
+  border-radius:14px 14px 0 0;
+  padding:32px 24px 28px;
+}
+.modal__close{
+  position:absolute;
+  top:14px;
+  right:14px;
+  width:36px;
+  height:36px;
+  border:none;
+  background:transparent;
+  color:var(--ink);
+  font-size:24px;
+  line-height:1;
+  cursor:pointer;
+  border-radius:50%;
+}
+.modal__close:hover{background:rgba(36,30,24,0.08)}
+.modal__close:focus-visible{outline:3px solid var(--bronze);outline-offset:2px}
+.modal__title{
+  font-family:var(--serif);
+  font-weight:400;
+  font-size:24px;
+  margin:0 0 8px;
+  color:var(--ink);
+}
+.modal__sub{
+  font-size:15px;
+  color:#5a4f42;
+  margin:0 0 24px;
+}
 
-  closeBtn.addEventListener("click", closeModal);
-  overlay.addEventListener("click", function (e) {
-    if (e.target === overlay) closeModal();
-  });
+.form-errors{
+  background:#fbeaea;
+  border:1px solid #d98c8c;
+  color:#7a1f1f;
+  border-radius:6px;
+  padding:12px 14px;
+  font-size:14px;
+  margin-bottom:20px;
+}
 
-  form.addEventListener("input", function () {
-    hasStartedFilling = true;
-  }, { once: true });
+.field{margin-bottom:18px}
+.field label{
+  display:block;
+  font-size:14px;
+  font-weight:600;
+  color:var(--ink);
+  margin-bottom:6px;
+}
+.field .req{color:#8a3b1f}
+.field input{
+  width:100%;
+  padding:13px 14px;
+  font-size:16px;
+  font-family:var(--sans);
+  border:1.5px solid #c9bfa8;
+  border-radius:6px;
+  background:#fff;
+  color:var(--ink);
+}
+.field input:focus-visible{
+  outline:2.5px solid var(--bronze);
+  outline-offset:1px;
+  border-color:var(--bronze);
+}
+.field.has-error input{border-color:#c0392b}
+.field-error{
+  display:block;
+  font-size:13px;
+  color:#c0392b;
+  margin-top:6px;
+  min-height:0;
+}
 
-  // ---------- Validação (só ao tentar avançar) ----------
-  function validators(fieldId, value) {
-    const v = value.trim();
-    switch (fieldId) {
-      case "nome":
-        if (!v) return "Digite seu nome completo.";
-        if (v.length < 3) return "Digite seu nome completo, com sobrenome.";
-        return null;
-      case "email":
-        if (!v) return "Digite seu e-mail.";
-        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)) return "Digite um e-mail válido, como nome@exemplo.com.";
-        return null;
-      case "whatsapp":
-        if (!v) return "Digite seu WhatsApp com DDD.";
-        if (v.replace(/\D/g, "").length < 10) return "Digite um número válido com DDD, ex: (11) 98888-7777.";
-        return null;
-      default:
-        return null;
-    }
-  }
+.btn--full{width:100%;max-width:none;margin-top:6px}
+.btn[disabled]{opacity:.65;cursor:not-allowed}
 
-  function validateForm() {
-    const errors = [];
-    FLOW_CONFIG.fields.forEach(function (field) {
-      const input = document.getElementById("field" + capitalize(field.id));
-      const errEl = document.getElementById("err" + capitalize(field.id));
-      const fieldWrap = input.closest(".field");
-      const message = validators(field.id, input.value);
+/* ---------- Acessibilidade / preferências ---------- */
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:0.001ms !important;transition-duration:0.001ms !important;}
+}
 
-      if (message) {
-        errors.push({ id: field.id, message: message });
-        fieldWrap.classList.add("has-error");
-        errEl.textContent = "Erro: " + message;
-        input.setAttribute("aria-invalid", "true");
-      } else {
-        fieldWrap.classList.remove("has-error");
-        errEl.textContent = "";
-        input.removeAttribute("aria-invalid");
-      }
-    });
-    return errors;
-  }
-
-  function capitalize(str) {
-    return str.charAt(0).toUpperCase() + str.slice(1);
-  }
-
-  // ---------- Envio ----------
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
-
-    const errors = validateForm();
-
-    if (errors.length) {
-      errorsBox.hidden = false;
-      errorsBox.innerHTML =
-        "Erro: verifique os campos destacados abaixo antes de continuar.";
-      errorsBox.focus ? errorsBox.setAttribute("tabindex", "-1") : null;
-      errorsBox.scrollIntoView({ behavior: "smooth", block: "start" });
-      errorsBox.focus();
-
-      errors.forEach(function (err) {
-        trackEvent("field_error", { step_id: "popup_lead", field_id: err.id, error_type: err.message });
-      });
-      return;
-    }
-
-    errorsBox.hidden = true;
-
-    const payload = {
-      nome: document.getElementById("fieldNome").value.trim(),
-      email: document.getElementById("fieldEmail").value.trim(),
-      whatsapp: document.getElementById("fieldWhatsapp").value.trim(),
-      capturedAt: new Date().toISOString(),
-    };
-
-    // Salva localmente (não perde o lead mesmo sem webhook configurado ainda)
-    try {
-      const existing = JSON.parse(sessionStorage.getItem("universo_lentes_leads") || "[]");
-      existing.push(payload);
-      sessionStorage.setItem("universo_lentes_leads", JSON.stringify(existing));
-      sessionStorage.setItem("universo_lentes_last_lead", JSON.stringify(payload));
-    } catch (e) {
-      console.warn("Não foi possível salvar no sessionStorage:", e);
-    }
-
-    submitBtn.disabled = true;
-    submitBtn.textContent = "Enviando...";
-
-    trackEvent("step_complete", {
-      step_id: "popup_lead",
-      step_number: 1,
-      time_on_step: popupOpenedAt ? Date.now() - popupOpenedAt : null,
-    });
-    trackEvent("funnel_complete", { total_time: popupOpenedAt ? Date.now() - popupOpenedAt : null });
-
-    // Envia para webhook, se configurado (não bloqueia o redirect)
-    if (FLOW_CONFIG.webhookUrl) {
-      try {
-        navigator.sendBeacon(FLOW_CONFIG.webhookUrl, JSON.stringify(payload));
-      } catch (e) { /* não bloquear o fluxo por causa do webhook */ }
-    }
-
-    setTimeout(function () {
-      if (FLOW_CONFIG.checkoutUrl) {
-        window.location.href = FLOW_CONFIG.checkoutUrl;
-      } else {
-        // Sem URL de checkout configurada ainda: mostra confirmação em vez de redirecionar.
-        modal.innerHTML =
-          '<h2 class="modal__title">Dados recebidos!</h2>' +
-          '<p class="modal__sub">Assim que o link de pagamento estiver configurado, ' +
-          "você será redirecionado automaticamente para o checkout. " +
-          '<br><br><em>(Nota para o desenvolvedor: defina <code>checkoutUrl</code> em flow.js)</em></p>';
-        submitBtn.disabled = false;
-      }
-    }, 500);
-  });
-
-  // ---------- Abandono ----------
-  window.addEventListener("beforeunload", function () {
-    if (popupOpenedAt && !overlay.hidden) {
-      trackEvent("funnel_abandon", {
-        last_step: "popup_lead",
-        time_on_page: Date.now() - popupOpenedAt,
-      });
-    }
-  });
-})();
+/* ---------- Desktop (a partir de 640px o texto ganha um pouco mais de respiro) ---------- */
+@media (min-width:640px){
+  .hero{padding:80px 0 56px}
+  .section{padding:64px 0}
+  .modal-overlay{align-items:center;padding:24px}
+  .modal{border-radius:14px;padding:40px 36px 32px}
+}
