@@ -44,6 +44,9 @@ e trocar `"Playfair Display",` no início da variável `--serif` (no mesmo arqui
 4. **Webhook (opcional)**: se quiser enviar o lead automaticamente para um CRM, planilha
    ou Zapier/Make, preencha `webhookUrl` em `flow.js`. Enquanto vazio, o lead fica só no
    `sessionStorage` do navegador (você pediu para deixar assim por enquanto).
+5. **WhatsApp flutuante**: preencha `whatsapp.number` em `flow.js` com o número completo
+   (DDI+DDD+número, ex: `"5511998887777"`). Enquanto vazio, o botão aparece no site mas
+   não abre nada ao ser clicado.
 
 ## Como personalizar
 
