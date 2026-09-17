@@ -33,26 +33,47 @@
   }
   .container{max-width:600px;margin:0 auto;padding:0 24px}
   .hero{padding:56px 0 40px;text-align:center}
-  .hero .eyebrow{
+  .badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
     font-family:var(--sans);
     font-size:13px;
-    letter-spacing:0.06em;
+    font-weight:600;
+    letter-spacing:0.02em;
     color:var(--bronze-light);
-    margin:0 0 18px;
+    background:rgba(180,137,79,0.12);
+    border:1px solid rgba(217,183,126,0.35);
+    padding:8px 16px;
+    border-radius:999px;
+    margin:0 0 22px;
   }
-  .hero h1{
-    font-family:var(--serif);
-    font-weight:400;
-    font-size:clamp(30px,7vw,44px);
-    line-height:1.18;
+  .badge__dot{
+    width:6px;
+    height:6px;
+    border-radius:50%;
+    background:var(--bronze-light);
+    flex:none;
+  }
+  .hero__title{
+    font-family:var(--sans);
+    font-weight:800;
+    letter-spacing:-0.01em;
+    font-size:clamp(28px,7.2vw,42px);
+    line-height:1.22;
     margin:0 0 20px;
     color:var(--porcelain);
   }
+  .highlight{color:var(--bronze-light)}
   .hero .sub{
     font-size:18px;
     line-height:1.55;
     color:var(--porcelain-dim);
     margin:0 0 28px;
+  }
+  .hero .sub strong{
+    color:var(--porcelain);
+    font-weight:700;
   }
   .btn{
     display:inline-block;
@@ -84,15 +105,17 @@
 <!-- ============ HERO ============ -->
 <header class="hero">
   <div class="container">
-    <p class="eyebrow">Dra. Larissa Bulhões</p>
-    <h1>Universo das Lentes</h1>
-    <p class="sub">
+    <span class="badge"><span class="badge__dot" aria-hidden="true"></span>Universo das Lentes · Dra. Larissa Bulhões</span>
+
+    <h1 class="hero__title">
       Aprenda o Método Bulhões e domine uma técnica de lentes em resina que te permita
-      cobrar mais de R$ 5 mil apenas nas lentes superiores.
-    </p>
+      cobrar mais de <span class="highlight">R$ 5 mil</span> apenas nas lentes superiores.
+    </h1>
+
     <p class="sub">
       Uma técnica minimalista desenvolvida pela Dra. Larissa Bulhões para construir
-      resultados naturais e sofisticados utilizando apenas 2 tonalidades de resina.
+      resultados naturais e sofisticados utilizando apenas <strong>2 tonalidades de
+      resina</strong>.
     </p>
 
     <!-- VSL: substitua o bloco abaixo pelo player real (Vturb, Panda, YouTube privado etc.) -->
@@ -121,19 +144,13 @@
     <p class="p">Hoje, os resultados falam por eles.</p>
 
     <div class="proof-grid">
-      <!-- Substitua cada bloco pelas imagens/vídeos reais dos alunos -->
-      <div class="proof-card">
-        <div class="proof-card__media" aria-hidden="true"></div>
-        <p class="proof-card__label">Resultados dos alunos</p>
-      </div>
-      <div class="proof-card">
-        <div class="proof-card__media" aria-hidden="true"></div>
-        <p class="proof-card__label">Primeiros casos</p>
-      </div>
-      <div class="proof-card">
-        <div class="proof-card__media" aria-hidden="true"></div>
-        <p class="proof-card__label">Depoimentos em vídeo / prints</p>
-      </div>
+      <img src="assets/caso-01.jpg" alt="Antes e depois de lentes em resina — caso real de aluno do Método Bulhões" loading="lazy" width="900" height="900">
+      <img src="assets/caso-02.jpg" alt="Antes e depois de lentes em resina — caso real de aluno do Método Bulhões" loading="lazy" width="900" height="900">
+      <img src="assets/caso-03.jpg" alt="Antes e depois de lentes em resina — caso real de aluno do Método Bulhões" loading="lazy" width="900" height="900">
+      <img src="assets/caso-04.jpg" alt="Resultado de lentes em resina — caso real de aluno do Método Bulhões" loading="lazy" width="900" height="600">
+      <img src="assets/caso-05.jpg" alt="Antes e depois de lentes em resina — caso real de aluno do Método Bulhões" loading="lazy" width="900" height="900">
+      <img src="assets/caso-06.jpg" alt="Resultado de lentes em resina em paciente — caso real de aluno do Método Bulhões" loading="lazy" width="900" height="843">
+      <img src="assets/caso-07.jpg" alt="Resultado de lentes em resina em paciente — caso real de aluno do Método Bulhões" loading="lazy" width="900" height="843">
     </div>
   </div>
 </section>
@@ -242,8 +259,9 @@
   <div class="container">
     <h2 class="h2">O Método Bulhões nasceu de uma forma minimalista de enxergar a odontologia.</h2>
 
-    <!-- Substitua pela foto real da Dra. Larissa -->
-    <div class="author-photo" aria-hidden="true"></div>
+    <div class="author-photo">
+      <img src="assets/dra-larissa.jpg" alt="Dra. Larissa Bulhões" loading="lazy" width="700" height="945">
+    </div>
 
     <p class="p">A Dra. Larissa Bulhões começou a trabalhar com lentes em resina ainda no primeiro ano de formada.</p>
     <p class="p">
