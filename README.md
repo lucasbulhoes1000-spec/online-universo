@@ -21,7 +21,18 @@ app.js           → motor: abre/fecha pop-up, valida, salva o lead, dispara tra
 privacidade.html → rascunho de política de privacidade (revisar com jurídico)
 ```
 
-## ⚠️ Antes de publicar — o que falta configurar
+## ⚠️ Sobre a fonte (Playfair Display)
+
+Esta página carrega a fonte **Playfair Display** do Google Fonts — a única dependência
+externa do projeto. Isso foi uma decisão consciente: o padrão do projeto era zero
+dependências externas (para máxima velocidade), mas foi solicitado explicitamente usar
+essa fonte para bater com uma referência visual. Usei `font-display: swap` e
+`preconnect` para minimizar o impacto na velocidade de carregamento, mas isso ainda
+adiciona uma requisição externa que não existia antes. Se quiser voltar à versão 100%
+sem dependências, basta remover as 3 tags `<link>` de fonte no `<head>` do `index.html`
+e trocar `"Playfair Display",` no início da variável `--serif` (no mesmo arquivo).
+
+## Antes de publicar — o que falta configurar
 
 1. **VSL**: no `index.html`, procure o comentário `<!-- VSL: substitua o bloco abaixo -->`
    e troque pelo embed real do seu player (Vturb, Panda Video, YouTube não-listado etc).
