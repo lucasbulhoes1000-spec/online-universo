@@ -35,8 +35,9 @@
   font-size:clamp(24px,5.5vw,30px);
   line-height:1.28;
   margin:0 0 20px;
-  color:var(--porcelain);
+  color:var(--bronze-light);
 }
+.h2--center{text-align:center}
 .p{
   font-size:16px;
   line-height:1.65;
@@ -47,6 +48,31 @@
   color:var(--porcelain);
   font-size:18px;
 }
+
+/* ---------- Checklist (o que você passa a saber) ---------- */
+.checklist-card{
+  border:1px solid var(--line);
+  border-radius:8px;
+  padding:8px 20px;
+  margin:24px 0 28px;
+}
+.checklist-card__list{
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+.checklist-card__list li{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:14px 0;
+  border-top:1px solid var(--line);
+  font-size:16px;
+  color:var(--porcelain);
+}
+.checklist-card__list li:first-child{border-top:none}
+.checklist-card__list svg{flex:none}
+.btn--center{display:block;margin:0 auto}
 
 /* ---------- Prova social ---------- */
 .proof-grid{
