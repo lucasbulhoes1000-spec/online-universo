@@ -82,6 +82,21 @@
   color:var(--porcelain-dim);
 }
 
+/* ---------- Depoimentos ---------- */
+.testimonial-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:16px;
+  margin-top:24px;
+}
+.testimonial-grid img{
+  width:100%;
+  height:auto;
+  border-radius:8px;
+  border:1px solid var(--line);
+  display:block;
+}
+
 /* ---------- Currículo ---------- */
 .module{
   padding:24px 0;
