@@ -51,25 +51,18 @@
 /* ---------- Prova social ---------- */
 .proof-grid{
   display:grid;
-  grid-template-columns:1fr;
-  gap:16px;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
   margin-top:24px;
 }
-.proof-card{
+.proof-grid img{
+  width:100%;
+  height:100%;
+  aspect-ratio:1/1;
+  object-fit:cover;
+  border-radius:4px;
   border:1px solid var(--line);
-  border-radius:2px;
-  overflow:hidden;
-}
-.proof-card__media{
-  aspect-ratio:4/3;
-  background:linear-gradient(135deg,#241f18,#171310);
-}
-.proof-card__label{
-  margin:0;
-  padding:12px 14px;
-  font-size:14px;
-  color:var(--porcelain-dim);
-  border-top:1px solid var(--line);
+  background:var(--charcoal-2);
 }
 
 /* ---------- Tags / skills ---------- */
@@ -116,8 +109,15 @@
   max-width:220px;
   margin:0 auto 28px;
   border-radius:50%;
-  background:linear-gradient(135deg,#241f18,#171310);
+  overflow:hidden;
   border:1px solid var(--line);
+}
+.author-photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:top center;
+  display:block;
 }
 
 /* ---------- Bônus ---------- */
