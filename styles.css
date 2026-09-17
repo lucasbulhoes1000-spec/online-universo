@@ -65,23 +65,6 @@
   background:var(--charcoal-2);
 }
 
-/* ---------- Tags / skills ---------- */
-.tag-list{
-  list-style:none;
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  padding:0;
-  margin:24px 0;
-}
-.tag-list li{
-  font-size:14px;
-  padding:8px 14px;
-  border:1px solid var(--line);
-  border-radius:999px;
-  color:var(--porcelain-dim);
-}
-
 /* ---------- Depoimentos ---------- */
 .testimonial-grid{
   display:grid;
