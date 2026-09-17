@@ -223,6 +223,15 @@
   margin:0 0 24px;
 }
 
+/* ---------- Selo de garantia ---------- */
+.guarantee-seal{text-align:center}
+.guarantee-seal__badge{display:block;margin:0 auto 20px}
+.guarantee-seal__text{
+  max-width:440px;
+  margin:0 auto;
+  text-align:center;
+}
+
 /* ---------- Footer ---------- */
 .footer{padding:40px 0 56px;text-align:center}
 .footer__text{
