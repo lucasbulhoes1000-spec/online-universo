@@ -17,7 +17,7 @@
     --bronze-light:#d9b77e;
     --ink:#241e18;
     --line:rgba(243,238,226,0.14);
-    --serif:Georgia,"Iowan Old Style","Palatino Linotype",Palatino,serif;
+    --serif:"Playfair Display","Big Caslon","Didot","Bodoni MT",Georgia,"Iowan Old Style","Palatino Linotype",Palatino,serif;
     --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
   }
   *,*::before,*::after{box-sizing:border-box}
@@ -79,24 +79,32 @@
     display:inline-block;
     width:100%;
     max-width:440px;
-    padding:17px 24px;
-    background:var(--bronze);
-    color:var(--charcoal);
+    padding:18px 24px;
+    background:linear-gradient(180deg,var(--bronze-light),var(--bronze));
+    color:#23180a;
     font-family:var(--sans);
-    font-size:16px;
-    font-weight:600;
+    font-size:15px;
+    font-weight:700;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
     text-align:center;
     border:none;
-    border-radius:2px;
+    border-radius:999px;
     cursor:pointer;
     text-decoration:none;
-    transition:background .15s ease;
+    box-shadow:0 6px 24px rgba(180,137,79,0.35);
+    transition:filter .15s ease, transform .15s ease;
   }
-  .btn:hover{background:var(--bronze-light)}
+  .btn:hover{filter:brightness(1.08)}
+  .btn:active{transform:scale(0.98)}
   .btn:focus-visible{outline:3px solid var(--bronze-light);outline-offset:3px}
   a,button{font-family:inherit}
   img{max-width:100%;display:block}
 </style>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,500&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -151,7 +159,7 @@
       <img src="caso-05.jpg" alt="Antes e depois de lentes em resina — caso real de aluno do Método Bulhões" loading="lazy" width="900" height="900">
       <img src="caso-06.jpg" alt="Resultado de lentes em resina em paciente — caso real de aluno do Método Bulhões" loading="lazy" width="900" height="843">
       <img src="caso-07.jpg" alt="Resultado de lentes em resina em paciente — caso real de aluno do Método Bulhões" loading="lazy" width="900" height="843">
-      <img src="caso-08.jpg" alt="Resultado de lentes em resina em paciente — caso real de aluno do Método Bulhões" loading="lazy" width="900" height="1350" class="obj-top">
+      <img src="caso-08.jpg" alt="Antes e depois de lentes em resina — caso real de aluno do Método Bulhões" loading="lazy" width="900" height="1125">
     </div>
   </div>
 </section>
