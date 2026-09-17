@@ -38,6 +38,21 @@
     referrer: document.referrer,
   });
 
+  // ---------- WhatsApp flutuante ----------
+  const whatsappFloat = document.getElementById("whatsappFloat");
+  if (whatsappFloat) {
+    const wa = FLOW_CONFIG.whatsapp || {};
+    if (wa.number) {
+      const text = encodeURIComponent(wa.message || "");
+      whatsappFloat.href = "https://wa.me/" + wa.number.replace(/\D/g, "") + (text ? "?text=" + text : "");
+    } else {
+      whatsappFloat.addEventListener("click", function (e) {
+        e.preventDefault();
+        console.warn("Configure FLOW_CONFIG.whatsapp.number em flow.js para ativar o botão de WhatsApp.");
+      });
+    }
+  }
+
   // ---------- Elementos ----------
   const overlay = document.getElementById("modalOverlay");
   const modal = document.getElementById("modal");
