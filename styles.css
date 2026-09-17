@@ -109,24 +109,36 @@
 }
 
 /* ---------- Currículo ---------- */
-.module{
-  padding:24px 0;
-  border-top:1px solid var(--line);
-}
-.module:first-of-type{border-top:none;padding-top:8px}
-.module__title{
-  font-family:var(--serif);
-  font-weight:400;
-  font-size:20px;
-  color:var(--porcelain);
-  margin:0 0 10px;
-}
-.plain-list{
+.module-card{
+  position:relative;
+  background:var(--charcoal-2);
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:26px 20px 20px;
   margin:0 0 16px;
-  padding-left:20px;
-  color:var(--porcelain-dim);
+  overflow:hidden;
 }
-.plain-list li{margin-bottom:6px;line-height:1.5}
+.module-card__bar{
+  position:absolute;
+  top:0;
+  left:20px;
+  width:56px;
+  height:3px;
+  background:linear-gradient(90deg,var(--bronze),var(--bronze-light));
+  border-radius:0 0 3px 3px;
+}
+.module-card__icon{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  background:linear-gradient(135deg,var(--bronze-light),var(--bronze));
+  margin:0 0 14px;
+}
+.module-card__text{margin:0}
+.module-card__text strong{color:var(--porcelain);font-weight:700}
 
 /* ---------- Autoridade ---------- */
 .author-photo{
@@ -250,6 +262,37 @@
 }
 .whatsapp-float:hover{transform:scale(1.06)}
 .whatsapp-float:focus-visible{outline:3px solid var(--bronze-light);outline-offset:3px}
+
+/* ---------- FAQ ---------- */
+.faq-list{margin-top:24px}
+.faq-item{
+  background:var(--charcoal-2);
+  border:1px solid var(--line);
+  border-radius:16px;
+  margin:0 0 12px;
+  overflow:hidden;
+}
+.faq-item__q{
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  background:none;
+  border:none;
+  padding:18px 20px;
+  font-family:var(--sans);
+  font-size:15.5px;
+  font-weight:600;
+  color:var(--porcelain);
+  text-align:left;
+  cursor:pointer;
+}
+.faq-item__q:focus-visible{outline:2px solid var(--bronze-light);outline-offset:-2px}
+.faq-item__chevron{flex:none;transition:transform .2s ease}
+.faq-item__q[aria-expanded="true"] .faq-item__chevron{transform:rotate(180deg)}
+.faq-item__a{padding:0 20px 20px}
+.faq-item__a .p{margin:0;color:var(--porcelain-dim)}
 
 /* ---------- Footer ---------- */
 .footer{padding:40px 0 56px;text-align:center}
