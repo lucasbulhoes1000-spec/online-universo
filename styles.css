@@ -205,27 +205,24 @@
   font-family:var(--sans);
   font-size:15px;
   color:var(--porcelain-dim);
-  margin:0 0 6px;
+  margin:0 0 10px;
 }
 .price-block__anchor s{color:var(--porcelain-dim);opacity:0.75}
-.price-block__main{
-  font-family:var(--sans);
-  font-size:18px;
+.price-block__main{margin:0 0 2px;line-height:1.15}
+.price-block__alt{margin:0;line-height:1.15}
+.price-block__label{
+  font-family:var(--serif);
+  font-size:clamp(20px,5.5vw,26px);
   font-weight:400;
   color:var(--porcelain-dim);
-  margin:0 0 4px;
 }
 .price-block__amount{
   font-family:var(--serif);
-  font-size:36px;
+  font-size:clamp(28px,7.5vw,38px);
   font-weight:600;
   color:var(--porcelain);
 }
-.price-block__alt{
-  font-size:16px;
-  color:var(--porcelain-dim);
-  margin:0;
-}
+.price-block__amount--sm{font-size:clamp(24px,6.5vw,32px)}
 .guarantee{
   display:flex;
   align-items:center;
