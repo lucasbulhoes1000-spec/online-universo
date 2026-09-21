@@ -293,7 +293,18 @@
 .faq-item__a .p{margin:0;color:var(--porcelain-dim)}
 
 /* ---------- Footer ---------- */
-.footer{padding:40px 0 56px;text-align:center}
+.footer{
+  padding:32px 0 56px;
+  text-align:center;
+  border-top:1px solid var(--line);
+}
+.footer__brand{
+  font-size:14px;
+  font-weight:700;
+  color:var(--porcelain);
+  margin:0 0 10px;
+}
+.footer__brand span{font-weight:400;color:var(--porcelain-dim)}
 .footer__text{
   font-size:13px;
   color:var(--porcelain-dim);
