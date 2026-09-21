@@ -1,413 +1,540 @@
-/* ============================================
-   Universo das Lentes — styles.css
-   Tema fixo (não segue prefers-color-scheme do
-   sistema de propósito: é a identidade de marca).
-   Contraste checado para AA em texto e ícones.
-   ============================================ */
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Universo das Lentes · Método Bulhões</title>
+<meta name="description" content="Aprenda o Método Bulhões e domine uma técnica de lentes em resina minimalista, natural e sofisticada, com apenas 2 tonalidades de resina.">
 
-/* ---------- Vídeo (hero) ---------- */
-.video-frame{
-  margin:0 0 20px;
-  border-radius:2px;
-  overflow:hidden;
-  background:var(--charcoal-2);
-  border:1px solid var(--line);
-}
-.video-placeholder{
-  aspect-ratio:16/9;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  gap:12px;
-  color:var(--porcelain-dim);
-  font-size:14px;
-  padding:16px;
-  text-align:center;
-}
+<!-- CSS crítico: o mínimo para renderizar a primeira tela sem flash -->
+<style>
+  :root{
+    --charcoal:#16130f;
+    --charcoal-2:#1e1912;
+    --porcelain:#f3eee2;
+    --porcelain-dim:#e6dcc8;
+    --bronze:#b4894f;
+    --bronze-light:#d9b77e;
+    --ink:#241e18;
+    --line:rgba(243,238,226,0.14);
+    --serif:"Playfair Display","Big Caslon","Didot","Bodoni MT",Georgia,"Iowan Old Style","Palatino Linotype",Palatino,serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  }
+  *,*::before,*::after{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;
+    background:var(--charcoal);
+    color:var(--porcelain);
+    font-family:var(--sans);
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .container{max-width:600px;margin:0 auto;padding:0 24px}
+  .hero{padding:32px 0 32px;text-align:center}
+  .hero__title{
+    font-family:var(--serif);
+    font-weight:700;
+    letter-spacing:0;
+    font-size:clamp(21px,6.4vw,40px);
+    line-height:1.22;
+    margin:0 0 14px;
+    color:var(--porcelain);
+  }
+  .highlight{color:var(--bronze-light)}
+  .hero .sub{
+    font-size:16px;
+    line-height:1.5;
+    color:var(--porcelain-dim);
+    margin:16px 0 22px;
+  }
+  .hero .sub strong{
+    color:var(--porcelain);
+    font-weight:700;
+  }
+  .btn{
+    display:inline-block;
+    width:100%;
+    max-width:440px;
+    padding:18px 24px;
+    background:linear-gradient(135deg,#f0d5a3,var(--bronze-light) 45%,var(--bronze));
+    color:#23180a;
+    font-family:var(--sans);
+    font-size:15px;
+    font-weight:700;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+    text-align:center;
+    border:none;
+    border-radius:999px;
+    cursor:pointer;
+    text-decoration:none;
+    box-shadow:0 0 32px 6px rgba(217,183,126,0.55), 0 8px 20px rgba(0,0,0,0.35);
+    transition:filter .15s ease, transform .15s ease, box-shadow .15s ease;
+  }
+  .btn:hover{filter:brightness(1.08);box-shadow:0 0 40px 8px rgba(217,183,126,0.7), 0 8px 20px rgba(0,0,0,0.35)}
+  .btn:active{transform:scale(0.98)}
+  .btn:focus-visible{outline:3px solid var(--bronze-light);outline-offset:3px}
+  a,button{font-family:inherit}
+  img{max-width:100%;display:block}
+</style>
 
-/* ---------- Seções gerais ---------- */
-.section{padding:48px 0}
-.section--dim{background:var(--charcoal-2)}
-.h2{
-  font-family:var(--serif);
-  font-weight:400;
-  font-size:clamp(24px,5.5vw,30px);
-  line-height:1.28;
-  margin:0 0 20px;
-  color:var(--bronze-light);
-}
-.h2--center{text-align:center}
-.p{
-  font-size:16px;
-  line-height:1.65;
-  color:var(--porcelain-dim);
-  margin:0 0 16px;
-}
-.p--emphasis{
-  color:var(--porcelain);
-  font-size:18px;
-}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,500&display=swap" rel="stylesheet">
 
-/* ---------- Checklist (o que você passa a saber) ---------- */
-.checklist-card{
-  border:1px solid var(--line);
-  border-radius:8px;
-  padding:8px 20px;
-  margin:24px 0 28px;
-}
-.checklist-card__list{
-  list-style:none;
-  margin:0;
-  padding:0;
-}
-.checklist-card__list li{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  padding:14px 0;
-  border-top:1px solid var(--line);
-  font-size:16px;
-  color:var(--porcelain);
-}
-.checklist-card__list li:first-child{border-top:none}
-.checklist-card__list svg{flex:none}
-.btn--center{display:block;margin:24px auto 0}
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
 
-/* ---------- Prova social ---------- */
-.proof-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:10px;
-  margin-top:24px;
-}
-.proof-grid img{
-  width:100%;
-  height:100%;
-  aspect-ratio:1/1;
-  object-fit:cover;
-  object-position:center;
-  border-radius:4px;
-  border:1px solid var(--line);
-  background:var(--charcoal-2);
-}
-.proof-grid img.obj-top{object-position:top}
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="container">
 
-/* ---------- Depoimentos ---------- */
-.testimonial-grid{
-  display:grid;
-  grid-template-columns:1fr;
-  gap:16px;
-  margin-top:24px;
-}
-.testimonial-grid img{
-  width:100%;
-  height:auto;
-  border-radius:8px;
-  border:1px solid var(--line);
-  display:block;
-}
+    <h1 class="hero__title">
+      Aprenda o Método Bulhões e domine uma técnica de lentes em resina que te permita
+      cobrar mais de <span class="highlight">R$ 5 mil</span> apenas nas lentes superiores.
+    </h1>
 
-/* ---------- Currículo (acordeon) ---------- */
-.faq-item__label{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  text-align:left;
-}
-.module-icon{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  width:32px;
-  height:32px;
-  border-radius:50%;
-  background:linear-gradient(135deg,var(--bronze-light),var(--bronze));
-  flex:none;
-}
+    <!-- VSL: substitua o bloco abaixo pelo player real (Vturb, Panda, YouTube privado etc.) -->
+    <div class="video-frame" aria-label="Vídeo de apresentação do Método Bulhões">
+      <div class="video-placeholder">
+        <svg width="52" height="52" viewBox="0 0 52 52" fill="none" aria-hidden="true">
+          <circle cx="26" cy="26" r="25" stroke="#d9b77e" stroke-width="1.5"/>
+          <path d="M21 17L36 26L21 35V17Z" fill="#d9b77e"/>
+        </svg>
+        <p>Insira aqui o embed do seu player de VSL</p>
+      </div>
+    </div>
 
-/* ---------- Autoridade ---------- */
-.author-photo{
-  width:100%;
-  aspect-ratio:1/1;
-  max-width:200px;
-  margin:8px auto 32px;
-  border-radius:50%;
-  overflow:hidden;
-  border:2px solid var(--bronze-light);
-  box-shadow:0 0 0 6px rgba(217,183,126,0.1), 0 10px 30px rgba(0,0,0,0.4);
-}
-.author-photo img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  object-position:top center;
-  display:block;
-}
+    <p class="sub">
+      Uma técnica minimalista desenvolvida pela Dra. Larissa Bulhões para construir
+      resultados naturais e sofisticados utilizando apenas <strong>2 tonalidades de
+      resina</strong>.
+    </p>
 
-/* ---------- Bônus ---------- */
-.bonus-list{
-  list-style:none;
-  padding:0;
-  margin:24px 0;
-}
-.bonus-list li{
-  display:flex;
-  align-items:flex-start;
-  gap:12px;
-  padding:14px 0;
-  border-top:1px solid var(--line);
-  font-size:16px;
-  color:var(--porcelain);
-}
-.bonus-list li:first-child{border-top:none}
-.bonus-list__icon{font-size:18px;line-height:1.4}
+    <button type="button" class="btn" data-cta="hero">Garantir minha vaga</button>
+  </div>
+</header>
 
-/* ---------- Oferta ---------- */
-.offer{padding-top:56px;padding-bottom:56px}
-.check-list{
-  list-style:none;
-  padding:0;
-  margin:0 0 32px;
-}
-.check-list li{
-  position:relative;
-  padding:9px 0 9px 30px;
-  color:var(--porcelain);
-  font-size:16px;
-  border-top:1px solid var(--line);
-}
-.check-list li:first-child{border-top:none}
-.check-list li::before{
-  content:"";
-  position:absolute;
-  left:0;
-  top:15px;
-  width:14px;
-  height:8px;
-  border-left:2px solid var(--bronze-light);
-  border-bottom:2px solid var(--bronze-light);
-  transform:rotate(-45deg);
-}
-.recoup{
-  text-align:center;
-  font-size:15px;
-  line-height:1.5;
-  color:var(--porcelain-dim);
-  padding-top:32px;
-  margin:0;
-}
-.price-block{
-  text-align:center;
-  padding:16px 0 20px;
-}
-.price-block__anchor{
-  font-family:var(--sans);
-  font-size:15px;
-  color:var(--porcelain-dim);
-  margin:0 0 10px;
-}
-.price-block__anchor s{color:var(--porcelain-dim);opacity:0.75}
-.price-block__main{margin:0 0 2px;line-height:1.15}
-.price-block__alt{margin:0;line-height:1.15}
-.price-block__label{
-  font-family:var(--serif);
-  font-size:clamp(20px,5.5vw,26px);
-  font-weight:400;
-  color:var(--porcelain-dim);
-}
-.price-block__amount{
-  font-family:var(--serif);
-  font-size:clamp(28px,7.5vw,38px);
-  font-weight:600;
-  color:var(--porcelain);
-}
-.price-block__amount--sm{font-size:clamp(24px,6.5vw,32px)}
-.guarantee{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:8px;
-  font-size:14px;
-  color:var(--porcelain-dim);
-  margin:0 0 24px;
-}
+<!-- ============ PROVA: RESULTADOS DE ALUNOS ============ -->
+<section class="section section--dim">
+  <div class="container">
+    <h2 class="h2">Mesmo quem nunca realizou lentes pode aprender a construir resultados como esses.</h2>
+    <p class="p">
+      Alguns dos nossos alunos chegaram ao Universo sem nunca terem executado um caso de
+      lentes em resina.
+    </p>
+    <p class="p">Hoje, os resultados falam por eles.</p>
 
-/* ---------- Selo de garantia ---------- */
-.guarantee-seal{text-align:center}
-.guarantee-seal__badge{display:block;margin:0 auto 20px}
-.guarantee-seal__text{
-  max-width:440px;
-  margin:0 auto;
-  text-align:center;
-}
+    <div class="proof-grid">
+      <img src="caso-01.jpg" alt="Antes e depois de lentes em resina, caso real de aluno do Método Bulhões" loading="lazy" width="900" height="900">
+      <img src="caso-02.jpg" alt="Antes e depois de lentes em resina, caso real de aluno do Método Bulhões" loading="lazy" width="900" height="900">
+      <img src="caso-03.jpg" alt="Antes e depois de lentes em resina, caso real de aluno do Método Bulhões" loading="lazy" width="900" height="900">
+      <img src="caso-04.jpg" alt="Resultado de lentes em resina, caso real de aluno do Método Bulhões" loading="lazy" width="900" height="600">
+      <img src="caso-05.jpg" alt="Antes e depois de lentes em resina, caso real de aluno do Método Bulhões" loading="lazy" width="900" height="900">
+      <img src="caso-06.jpg" alt="Resultado de lentes em resina em paciente, caso real de aluno do Método Bulhões" loading="lazy" width="900" height="843">
+      <img src="caso-07.jpg" alt="Resultado de lentes em resina em paciente, caso real de aluno do Método Bulhões" loading="lazy" width="900" height="843">
+      <img src="caso-09.jpg" alt="Antes e depois de lentes em resina, caso real de aluno do Método Bulhões" loading="lazy" width="900" height="1125">
+    </div>
 
-/* ---------- WhatsApp flutuante ---------- */
-.whatsapp-float{
-  position:fixed;
-  right:20px;
-  bottom:20px;
-  width:56px;
-  height:56px;
-  border-radius:50%;
-  background:#25D366;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  box-shadow:0 6px 20px rgba(0,0,0,0.35);
-  z-index:900;
-  transition:transform .15s ease;
-}
-.whatsapp-float:hover{transform:scale(1.06)}
-.whatsapp-float:focus-visible{outline:3px solid var(--bronze-light);outline-offset:3px}
+    <button type="button" class="btn btn--center" data-cta="proof">Garantir minha vaga</button>
+  </div>
+</section>
 
-/* ---------- FAQ ---------- */
-.faq-list{margin-top:24px}
-.faq-item{
-  background:var(--charcoal-2);
-  border:1px solid var(--line);
-  border-radius:16px;
-  margin:0 0 12px;
-  overflow:hidden;
-}
-.faq-item__q{
-  width:100%;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-  background:none;
-  border:none;
-  padding:18px 20px;
-  font-family:var(--sans);
-  font-size:15.5px;
-  font-weight:600;
-  color:var(--porcelain);
-  text-align:left;
-  cursor:pointer;
-}
-.faq-item__q:focus-visible{outline:2px solid var(--bronze-light);outline-offset:-2px}
-.faq-item__chevron{flex:none;transition:transform .2s ease}
-.faq-item__q[aria-expanded="true"] .faq-item__chevron{transform:rotate(180deg)}
-.faq-item__a{padding:0 20px 20px}
-.faq-item__a .p{margin:0;color:var(--porcelain-dim)}
+<!-- ============ DEPOIMENTOS ============ -->
+<section class="section">
+  <div class="container">
+    <h2 class="h2">O que os alunos falam depois do curso</h2>
 
-/* ---------- Footer ---------- */
-.footer{padding:40px 0 56px;text-align:center}
-.footer__text{
-  font-size:13px;
-  color:var(--porcelain-dim);
-  margin:0 0 8px;
-}
-.footer__link{color:var(--bronze-light)}
+    <div class="testimonial-grid">
+      <img src="depoimento-01.png" alt="Depoimento de aluna contando que fechou 4 casos de pacientes e 6 de pacientes modelos no mesmo dia em que o curso terminou" loading="lazy" width="700" height="301">
+      <img src="depoimento-02.png" alt="Depoimento de aluna elogiando a didática da Dra. Larissa e dizendo já ter indicado o curso para colegas" loading="lazy" width="700" height="247">
+      <img src="depoimento-03.png" alt="Depoimento de aluna dizendo que o curso foi um divisor de águas e o melhor investimento que poderia fazer" loading="lazy" width="700" height="175">
+      <img src="depoimento-04.jpg" alt="Depoimento da Dra. Clésia sobre a mentoria e a equipe do curso" loading="lazy" width="611" height="443">
+      <img src="depoimento-05.jpg" alt="Depoimento da Dra. Yohana Vitória sobre a quantidade de elogios recebidos após aplicar o método" loading="lazy" width="612" height="275">
+      <img src="depoimento-06.jpg" alt="Depoimento da Dra. Jade Pugliesi sobre a segurança que o curso deu para realizar lentes em resina" loading="lazy" width="606" height="487">
+    </div>
 
-/* ---------- Modal (pop-up de captura) ---------- */
-.modal-overlay{
-  position:fixed;
-  inset:0;
-  background:rgba(10,8,6,0.72);
-  align-items:flex-end;
-  justify-content:center;
-  z-index:1000;
-  padding:0;
-}
-.modal-overlay[hidden]{display:none}
-.modal-overlay:not([hidden]){display:flex}
-.modal{
-  position:relative;
-  width:100%;
-  max-width:600px;
-  max-height:92vh;
-  overflow-y:auto;
-  background:var(--porcelain);
-  color:var(--ink);
-  border-radius:14px 14px 0 0;
-  padding:32px 24px 28px;
-}
-.modal__close{
-  position:absolute;
-  top:14px;
-  right:14px;
-  width:36px;
-  height:36px;
-  border:none;
-  background:transparent;
-  color:var(--ink);
-  font-size:24px;
-  line-height:1;
-  cursor:pointer;
-  border-radius:50%;
-}
-.modal__close:hover{background:rgba(36,30,24,0.08)}
-.modal__close:focus-visible{outline:3px solid var(--bronze);outline-offset:2px}
-.modal__title{
-  font-family:var(--serif);
-  font-weight:400;
-  font-size:24px;
-  margin:0 0 8px;
-  color:var(--ink);
-}
-.modal__sub{
-  font-size:15px;
-  color:#5a4f42;
-  margin:0 0 24px;
-}
+    <button type="button" class="btn btn--center" data-cta="testimonials">Garantir minha vaga</button>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <h2 class="h2">Naturalidade não está na quantidade de resinas. Está no domínio de cada detalhe.</h2>
+    <p class="p">
+      O Método Bulhões parte de uma visão minimalista: em vez de depender de inúmeras
+      resinas e protocolos difíceis de reproduzir, você aprende a dominar os detalhes que
+      constroem um resultado natural, usando apenas duas tonalidades de resina e, através
+      da Estratificação Simplificada, determinados casos podem ser executados até mesmo
+      com uma única resina, preservando naturalidade e translucidez.
+    </p>
+    <p class="p p--emphasis">Menos complexidade. Mais domínio sobre cada detalhe.</p>
+  </div>
+</section>
 
-.form-errors{
-  background:#fbeaea;
-  border:1px solid #d98c8c;
-  color:#7a1f1f;
-  border-radius:6px;
-  padding:12px 14px;
-  font-size:14px;
-  margin-bottom:20px;
-}
+<!-- ============ CURRÍCULO ============ -->
+<section class="section section--dim">
+  <div class="container">
+    <h2 class="h2">Aqui está tudo o que você vai aprender no Universo das Lentes em Resina:</h2>
 
-.field{margin-bottom:18px}
-.field label{
-  display:block;
-  font-size:14px;
-  font-weight:600;
-  color:var(--ink);
-  margin-bottom:6px;
-}
-.field .req{color:#8a3b1f}
-.field input{
-  width:100%;
-  padding:13px 14px;
-  font-size:16px;
-  font-family:var(--sans);
-  border:1.5px solid #c9bfa8;
-  border-radius:6px;
-  background:#fff;
-  color:var(--ink);
-}
-.field input:focus-visible{
-  outline:2.5px solid var(--bronze);
-  outline-offset:1px;
-  border-color:var(--bronze);
-}
-.field.has-error input{border-color:#c0392b}
-.field-error{
-  display:block;
-  font-size:13px;
-  color:#c0392b;
-  margin-top:6px;
-  min-height:0;
-}
+    <div class="faq-list">
+      <div class="faq-item">
+        <button type="button" class="faq-item__q" aria-expanded="false">
+          <span class="faq-item__label">
+            <span class="module-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="6" y="4" width="12" height="17" rx="2" stroke="var(--porcelain)" stroke-width="1.5"/><path d="M9 3.5H15V5.5H9V3.5Z" stroke="var(--porcelain)" stroke-width="1.5"/><path d="M9 11L11 13L15 9" stroke="var(--porcelain)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            Planejamento e oclusão
+          </span>
+          <svg class="faq-item__chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9L12 15L18 9" stroke="var(--bronze-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-item__a" hidden>
+          <p class="p">Indicações e contraindicações, planejamento do caso, levante de mordida com table tops, guia canina e verificação oclusal.</p>
+        </div>
+      </div>
 
-.btn--full{width:100%;max-width:none;margin-top:6px}
-.btn[disabled]{opacity:.65;cursor:not-allowed}
+      <div class="faq-item">
+        <button type="button" class="faq-item__q" aria-expanded="false">
+          <span class="faq-item__label">
+            <span class="module-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M8 4C6 4 5 6 5 9C5 14 7 20 9.5 20C11 20 11 17 12 17C13 17 13 20 14.5 20C17 20 19 14 19 9C19 6 18 4 16 4C14 4 13.5 5.5 12 5.5C10.5 5.5 10 4 8 4Z" stroke="var(--porcelain)" stroke-width="1.5" stroke-linejoin="round"/></svg></span>
+            Anatomia e naturalidade
+          </span>
+          <svg class="faq-item__chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9L12 15L18 9" stroke="var(--bronze-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-item__a" hidden>
+          <p class="p">Proporções, zênites, ameias, áreas de espelho e sombra, volume, inclinação, anatomia primária e secundária e construção da curva do sorriso.</p>
+        </div>
+      </div>
 
-/* ---------- Acessibilidade / preferências ---------- */
-@media (prefers-reduced-motion: reduce){
-  *{animation-duration:0.001ms !important;transition-duration:0.001ms !important;}
-}
+      <div class="faq-item">
+        <button type="button" class="faq-item__q" aria-expanded="false">
+          <span class="faq-item__label">
+            <span class="module-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 8L12 4L20 8L12 12L4 8Z" stroke="var(--porcelain)" stroke-width="1.5" stroke-linejoin="round"/><path d="M4 12L12 16L20 12" stroke="var(--porcelain)" stroke-width="1.5" stroke-linejoin="round"/><path d="M4 16L12 20L20 16" stroke="var(--porcelain)" stroke-width="1.5" stroke-linejoin="round"/></svg></span>
+            Estratificação
+          </span>
+          <svg class="faq-item__chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9L12 15L18 9" stroke="var(--bronze-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-item__a" hidden>
+          <p class="p">Da estratificação simplificada às técnicas mais avançadas, incluindo concha incisal sem guia de silicone e sem moldagem, translucidez incisal, mamelos, halo opalescente, cores e pigmentos.</p>
+        </div>
+      </div>
 
-/* ---------- Desktop (a partir de 640px o texto ganha um pouco mais de respiro) ---------- */
-@media (min-width:640px){
-  .hero{padding:80px 0 56px}
-  .section{padding:64px 0}
-  .modal-overlay{align-items:center;padding:24px}
-  .modal{border-radius:14px;padding:40px 36px 32px}
-}
+      <div class="faq-item">
+        <button type="button" class="faq-item__q" aria-expanded="false">
+          <span class="faq-item__label">
+            <span class="module-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 3L13.8 8.5L19.5 8.5L14.9 11.9L16.6 17.4L12 14L7.4 17.4L9.1 11.9L4.5 8.5L10.2 8.5L12 3Z" stroke="var(--porcelain)" stroke-width="1.4" stroke-linejoin="round"/></svg></span>
+            Acabamento e polimento
+          </span>
+          <svg class="faq-item__chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9L12 15L18 9" stroke="var(--bronze-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-item__a" hidden>
+          <p class="p">Término cervical em 0, refinamento anatômico, sequência de brocas e protocolo completo de polimento para longevidade da cor e brilho.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button type="button" class="faq-item__q" aria-expanded="false">
+          <span class="faq-item__label">
+            <span class="module-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M14.7 6.3L17.7 9.3L9.5 17.5L5.8 18.2L6.5 14.5L14.7 6.3Z" stroke="var(--porcelain)" stroke-width="1.5" stroke-linejoin="round"/><path d="M13 8L16 11" stroke="var(--porcelain)" stroke-width="1.5"/></svg></span>
+            Manutenção e consertos
+          </span>
+          <svg class="faq-item__chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9L12 15L18 9" stroke="var(--bronze-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-item__a" hidden>
+          <p class="p">Como realizar manutenções e fazer consertos sem precisar refazer todo o trabalho.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button type="button" class="faq-item__q" aria-expanded="false">
+          <span class="faq-item__label">
+            <span class="module-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.5" stroke="var(--porcelain)" stroke-width="1.5"/><path d="M10 9L15 12L10 15V9Z" fill="var(--porcelain)"/></svg></span>
+            Casos clínicos reais
+          </span>
+          <svg class="faq-item__chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9L12 15L18 9" stroke="var(--bronze-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-item__a" hidden>
+          <p class="p">Acompanhe casos completos filmados em tempo real, diastemas, dentes escurecidos, dentes conoides, dentes pequenos, fechamentos completos de sorriso e lentes sobre coroa de porcelana em dente ou implante. E novos casos e técnicas continuam sendo adicionados ao Universo.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button type="button" class="faq-item__q" aria-expanded="false">
+          <span class="faq-item__label">
+            <span class="module-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 6H20V16H8L4 19V6Z" stroke="var(--porcelain)" stroke-width="1.5" stroke-linejoin="round"/></svg></span>
+            Mentoria e suporte
+          </span>
+          <svg class="faq-item__chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9L12 15L18 9" stroke="var(--bronze-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-item__a" hidden>
+          <p class="p">Mentoria em grupo para dúvidas e direcionamento, grupo de WhatsApp para networking e troca com outros alunos, análise dos seus casos com direcionamento clínico individual, e atualizações constantes com novos casos e técnicas.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CHECKLIST: O QUE VOCÊ PASSA A SABER ============ -->
+<section class="section">
+  <div class="container">
+    <h2 class="h2 h2--center">Com o Método Bulhões você deixa de improvisar e passa a saber:</h2>
+
+    <div class="checklist-card">
+      <ul class="checklist-card__list">
+        <li>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="var(--bronze)"/><path d="M7 12.5L10.2 15.5L17 8.5" stroke="#16130f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Se o caso é indicado
+        </li>
+        <li>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="var(--bronze)"/><path d="M7 12.5L10.2 15.5L17 8.5" stroke="#16130f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          O que precisa ser corrigido
+        </li>
+        <li>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="var(--bronze)"/><path d="M7 12.5L10.2 15.5L17 8.5" stroke="#16130f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Qual material e cor utilizar
+        </li>
+        <li>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="var(--bronze)"/><path d="M7 12.5L10.2 15.5L17 8.5" stroke="#16130f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Como conseguir naturalidade nos casos
+        </li>
+      </ul>
+    </div>
+
+    <button type="button" class="btn btn--center" data-cta="checklist">Quero aprender o Método Bulhões</button>
+  </div>
+</section>
+
+<!-- ============ BÔNUS ============ -->
+<section class="section section--dim">
+  <div class="container">
+    <p class="p p--emphasis">E você não vai aprender apenas a executar.</p>
+
+    <ul class="bonus-list">
+      <li><span class="bonus-list__icon" aria-hidden="true">🎁</span> Fotografia profissional para dentistas</li>
+      <li><span class="bonus-list__icon" aria-hidden="true">🎁</span> Como apresentar, precificar e fechar lentes em resina</li>
+      <li><span class="bonus-list__icon" aria-hidden="true">🎁</span> Posicionamento digital para dentistas</li>
+      <li><span class="bonus-list__icon" aria-hidden="true">🎁</span> Gengivoplastia aplicada às lentes em resina</li>
+      <li><span class="bonus-list__icon" aria-hidden="true">🎁</span> Como realizar uma avaliação estratégica</li>
+    </ul>
+
+    <p class="p">Tudo o que você precisa para dominar o Método Bulhões em um único lugar.</p>
+  </div>
+</section>
+
+<!-- ============ OFERTA ============ -->
+<section class="section offer" id="oferta">
+  <div class="container">
+    <h2 class="h2">Universo das Lentes em Resina</h2>
+
+    <ul class="check-list">
+      <li>Formação completa no Método Bulhões</li>
+      <li>Casos clínicos reais e completos</li>
+      <li>Método Bulhões de Estratificação Simplificada</li>
+      <li>Atualizações constantes de casos e técnicas</li>
+      <li>Mentorias em grupo</li>
+      <li>Grupo de WhatsApp</li>
+      <li>Análise e direcionamento dos seus casos</li>
+      <li>Todos os bônus</li>
+    </ul>
+
+    <p class="recoup">
+      Tudo isso pelo valor de menos de um caso de lentes superiores, no seu primeiro
+      caso aplicando o método, você já recupera o investimento do curso.
+    </p>
+
+    <div class="price-block">
+      <p class="price-block__anchor">De <s>R$ 3.997</s> por</p>
+      <p class="price-block__main"><span class="price-block__label">Apenas 12x de</span> <span class="price-block__amount">R$ 249</span></p>
+      <p class="price-block__alt"><span class="price-block__label">ou</span> <span class="price-block__amount price-block__amount--sm">R$ 2.497 à vista</span></p>
+    </div>
+
+    <p class="guarantee">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M12 2L4 5V11C4 16.5 7.4 20.7 12 22C16.6 20.7 20 16.5 20 11V5L12 2Z" stroke="#d9b77e" stroke-width="1.4"/>
+        <path d="M9 12L11 14L15 10" stroke="#d9b77e" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Garantia incondicional de 7 dias.
+    </p>
+
+    <button type="button" class="btn" data-cta="offer">Quero entrar para o Universo das Lentes</button>
+  </div>
+</section>
+
+<!-- ============ AUTORIDADE: DRA. LARISSA (após o preço) ============ -->
+<section class="section section--dim">
+  <div class="container">
+    <h2 class="h2">Conheça a Dra. Larissa Bulhões</h2>
+
+    <div class="author-photo">
+      <img src="dra-larissa.jpg" alt="Dra. Larissa Bulhões" loading="lazy" width="700" height="945">
+    </div>
+
+    <p class="p">
+      A Dra. Larissa Bulhões começou a trabalhar com lentes em resina ainda no primeiro
+      ano de formada e transformou esse procedimento em um dos pilares da sua carreira e
+      da Bulhões Odontologia, clínica que hoje fatura múltiplos 7 dígitos ao ano.
+    </p>
+    <p class="p">
+      Ao longo dos anos, aperfeiçoou sua própria forma de executar os casos: simplificar
+      a técnica sem simplificar o resultado.
+    </p>
+    <p class="p">
+      Foi assim que nasceu o Método Bulhões, uma técnica minimalista que permite construir
+      lentes naturais utilizando apenas duas tonalidades de resina e, em determinados
+      casos, realizar a estratificação com uma única resina.
+    </p>
+    <p class="p">
+      Hoje, Larissa aplica esse método diariamente em seus pacientes e ensina outros
+      dentistas a fazerem o mesmo.
+    </p>
+    <p class="p">
+      E agora, todo o conhecimento que transformou as lentes em um dos pilares da sua
+      carreira foi organizado em um método para encurtar o caminho de outros dentistas que
+      também querem crescer através das lentes em resina.
+    </p>
+
+    <button type="button" class="btn" data-cta="author">Quero entrar para o Universo das Lentes</button>
+  </div>
+</section>
+
+<!-- ============ SELO DE GARANTIA (final da página) ============ -->
+<section class="section guarantee-seal">
+  <div class="container">
+    <svg class="guarantee-seal__badge" width="180" height="180" viewBox="0 0 200 200" role="img" aria-label="Selo de 7 dias de garantia">
+      <circle cx="100" cy="100" r="94" fill="none" stroke="var(--line)" stroke-width="1"/>
+      <circle cx="100" cy="100" r="66" fill="none" stroke="var(--bronze-light)" stroke-width="1" stroke-dasharray="2 6"/>
+      <path id="curveTop" d="M 22,100 A 78,78 0 0,1 178,100" fill="none"/>
+      <path id="curveBottom" d="M 22,110 A 78,78 0 0,0 178,110" fill="none"/>
+      <text font-size="11" letter-spacing="2" fill="var(--bronze-light)" font-family="var(--sans)">
+        <textPath href="#curveTop" startOffset="50%" text-anchor="middle">7 DIAS DE GARANTIA</textPath>
+      </text>
+      <text font-size="11" letter-spacing="2" fill="var(--bronze-light)" font-family="var(--sans)">
+        <textPath href="#curveBottom" startOffset="50%" text-anchor="middle">7 DIAS DE GARANTIA</textPath>
+      </text>
+      <text x="100" y="118" text-anchor="middle" font-size="56" font-family="var(--serif)" fill="var(--porcelain)">7</text>
+    </svg>
+
+    <h2 class="h2 h2--center">7 dias de garantia</h2>
+    <p class="p guarantee-seal__text">
+      Ao entrar para o Universo das Lentes, você tem acesso completo ao Método Bulhões.
+      Se em 7 dias você não gostar, devolvemos todo o seu investimento, de forma simples
+      e sem burocracia.
+    </p>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="section">
+  <div class="container">
+    <h2 class="h2 h2--center">Perguntas frequentes</h2>
+
+    <div class="faq-list">
+      <div class="faq-item">
+        <button type="button" class="faq-item__q" aria-expanded="false">
+          Quais as formas de pagamento?
+          <svg class="faq-item__chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9L12 15L18 9" stroke="var(--bronze-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-item__a" hidden>
+          <p class="p">O pagamento pode ser feito no cartão de crédito e no Pix.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button type="button" class="faq-item__q" aria-expanded="false">
+          Por quanto tempo terei acesso ao Universo das Lentes em Resina?
+          <svg class="faq-item__chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9L12 15L18 9" stroke="var(--bronze-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-item__a" hidden>
+          <p class="p">
+            Você terá acesso pelo período de 12 meses (1 ano). Nesse tempo, você pode
+            acessar as aulas e os bônus 24 horas por dia, durante os 7 dias da semana, e
+            também terá acesso às atualizações feitas e às novidades adicionadas.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button type="button" class="faq-item__q" aria-expanded="false">
+          Existe suporte durante o curso?
+          <svg class="faq-item__chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9L12 15L18 9" stroke="var(--bronze-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-item__a" hidden>
+          <p class="p">
+            Sim! Você nunca estará sozinha(o). Durante toda a sua jornada, você contará
+            com o suporte do nosso time. Estaremos disponíveis para responder suas dúvidas
+            técnicas, acadêmicas e de execução, garantindo que você tenha clareza em cada
+            etapa do aprendizado.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button type="button" class="faq-item__q" aria-expanded="false">
+          Vou entender o curso mesmo sem saber nada sobre lentes em resina?
+          <svg class="faq-item__chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9L12 15L18 9" stroke="var(--bronze-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-item__a" hidden>
+          <p class="p">
+            Claro! Os conteúdos têm diferentes níveis de complexidade e podem ser
+            assistidos por dentistas recém-formados e também por aqueles que já possuem
+            experiência em lentes de resina.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <p class="footer__text">Universo das Lentes · Método Bulhões</p>
+    <p class="footer__text">
+      <a href="privacidade.html" class="footer__link">Política de privacidade</a>
+    </p>
+  </div>
+</footer>
+
+<!-- ============ POP-UP DE CAPTURA (antes do checkout) ============ -->
+<div class="modal-overlay" id="modalOverlay" hidden>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" id="modal">
+    <button type="button" class="modal__close" id="modalClose" aria-label="Fechar">&times;</button>
+
+    <h2 class="modal__title" id="modalTitle">Quero garantir meu acesso</h2>
+    <p class="modal__sub">Preencha seus dados para continuar para o pagamento.</p>
+
+    <div class="form-errors" id="formErrors" role="alert" aria-live="assertive" hidden></div>
+
+    <form id="leadForm" novalidate>
+      <div class="field">
+        <label for="fieldNome">Nome completo <span class="req">*</span></label>
+        <input type="text" id="fieldNome" name="nome" autocomplete="name" required aria-describedby="errNome">
+        <span class="field-error" id="errNome" aria-live="polite"></span>
+      </div>
+
+      <div class="field">
+        <label for="fieldEmail">E-mail <span class="req">*</span></label>
+        <input type="email" id="fieldEmail" name="email" autocomplete="email" required aria-describedby="errEmail">
+        <span class="field-error" id="errEmail" aria-live="polite"></span>
+      </div>
+
+      <div class="field">
+        <label for="fieldWhatsapp">WhatsApp <span class="req">*</span></label>
+        <input type="tel" id="fieldWhatsapp" name="whatsapp" autocomplete="tel" required aria-describedby="errWhatsapp" placeholder="(00) 00000-0000">
+        <span class="field-error" id="errWhatsapp" aria-live="polite"></span>
+      </div>
+
+      <button type="submit" class="btn btn--full" id="submitBtn">Quero garantir meu acesso</button>
+    </form>
+  </div>
+</div>
+
+<a href="#" id="whatsappFloat" class="whatsapp-float" aria-label="Falar no WhatsApp" target="_blank" rel="noopener">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="#fff" aria-hidden="true">
+    <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.82 12.04 21.82C17.5 21.82 21.95 17.37 21.95 11.91C21.95 9.26 20.92 6.77 19.05 4.9C17.18 3.02 14.69 2 12.04 2ZM12.04 20.15C10.56 20.15 9.11 19.76 7.85 19.01L7.55 18.83L4.43 19.65L5.26 16.6L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.8 7.37 7.5 3.67 12.04 3.67C14.24 3.67 16.31 4.53 17.86 6.08C19.41 7.64 20.28 9.71 20.28 11.91C20.28 16.45 16.57 20.15 12.04 20.15ZM16.56 13.97C16.31 13.85 15.11 13.25 14.88 13.17C14.65 13.08 14.48 13.04 14.31 13.29C14.14 13.54 13.66 14.1 13.51 14.27C13.36 14.44 13.21 14.46 12.96 14.34C12.71 14.21 11.92 13.95 10.98 13.11C10.25 12.46 9.76 11.66 9.61 11.41C9.46 11.16 9.59 11.02 9.72 10.9C9.83 10.79 9.97 10.6 10.09 10.46C10.22 10.31 10.26 10.21 10.35 10.04C10.43 9.87 10.39 9.72 10.33 9.6C10.26 9.47 9.77 8.27 9.56 7.78C9.36 7.3 9.16 7.37 9.01 7.36C8.87 7.35 8.7 7.35 8.53 7.35C8.36 7.35 8.09 7.41 7.86 7.66C7.63 7.91 6.98 8.51 6.98 9.71C6.98 10.91 7.88 12.07 8 12.23C8.12 12.4 9.76 14.94 12.28 16C12.87 16.25 13.34 16.4 13.7 16.51C14.29 16.69 14.83 16.66 15.25 16.6C15.72 16.53 16.71 16.01 16.92 15.44C17.13 14.87 17.13 14.38 17.07 14.28C17.01 14.18 16.84 14.12 16.56 13.97Z"/>
+  </svg>
+</a>
+
+<script src="flow.js" defer></script>
+<script src="app.js" defer></script>
+</body>
+</html>
