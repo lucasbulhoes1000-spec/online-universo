@@ -1,4 +1,4 @@
-   /* ============================================
+/* ============================================
    Universo das Lentes — styles.css
    Tema fixo (não segue prefers-color-scheme do
    sistema de propósito: é a identidade de marca).
@@ -199,13 +199,27 @@
 }
 .price-block{
   text-align:center;
-  padding:12px 0 20px;
+  padding:16px 0 20px;
 }
-.price-block__main{
-  font-family:var(--serif);
-  font-size:34px;
-  color:var(--porcelain);
+.price-block__anchor{
+  font-family:var(--sans);
+  font-size:15px;
+  color:var(--porcelain-dim);
   margin:0 0 6px;
+}
+.price-block__anchor s{color:var(--porcelain-dim);opacity:0.75}
+.price-block__main{
+  font-family:var(--sans);
+  font-size:18px;
+  font-weight:400;
+  color:var(--porcelain-dim);
+  margin:0 0 4px;
+}
+.price-block__amount{
+  font-family:var(--serif);
+  font-size:36px;
+  font-weight:600;
+  color:var(--porcelain);
 }
 .price-block__alt{
   font-size:16px;
