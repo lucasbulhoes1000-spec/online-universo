@@ -1,4 +1,4 @@
-/* ============================================
+   /* ============================================
    Universo das Lentes — styles.css
    Tema fixo (não segue prefers-color-scheme do
    sistema de propósito: é a identidade de marca).
@@ -130,11 +130,12 @@
 .author-photo{
   width:100%;
   aspect-ratio:1/1;
-  max-width:220px;
-  margin:0 auto 28px;
+  max-width:200px;
+  margin:8px auto 32px;
   border-radius:50%;
   overflow:hidden;
-  border:1px solid var(--line);
+  border:2px solid var(--bronze-light);
+  box-shadow:0 0 0 6px rgba(217,183,126,0.1), 0 10px 30px rgba(0,0,0,0.4);
 }
 .author-photo img{
   width:100%;
